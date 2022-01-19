@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-17.0.1">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/byte-buddy-1.10.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/classmate-1.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/dom4j-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/FastInfoset-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/hibernate-commons-annotations-5.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/hibernate-core-5.4.10.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/hibernate-jpamodelgen-5.4.10.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/jandex-2.1.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/javassist-3.24.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/javax.persistence-api-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/jaxb-api-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/jaxb-runtime-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/jboss-logging-3.3.2.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/mysql-connector-java-8.0.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/stax-ex-1.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/txw2-2.3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
