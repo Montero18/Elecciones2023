@@ -98,9 +98,9 @@ public class PorcentajesRangoedad implements java.io.Serializable {
 	
 	@Override
 	public String toString() {
-		return "PorcentajesRangoedad [nombreComunidad=" + nombreComunidad + ", rango19=" + rango19 + ", rango1017="
-				+ rango1017 + ", rango1825=" + rango1825 + ", rango2640=" + rango2640 + ", rango4165=" + rango4165
-				+ ", rangoMas66=" + rangoMas66 + ", totalHabitantes=" + totalHabitantes + "]";
+		return "PorcentajesRangoedad [nombreComunidad = " + nombreComunidad + " --> rango 1-9 = " + rango19 + "%, rango 10-17 = "
+				+ rango1017 + "%, rango 18-25 = " + rango1825 + "%, rango 26-40 = " + rango2640 + "%, rango 41-65 = " + rango4165
+				+ "%, rango +66 = " + rangoMas66 + "%, total Habitantes = " + totalHabitantes + "]";
 	}
 
 }
