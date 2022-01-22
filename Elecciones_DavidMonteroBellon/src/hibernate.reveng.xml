@@ -2,5 +2,6 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
+  <table-filter match-catalog="censo_por_comunidades" match-name="datos_electorales"/>
   <table-filter match-catalog="censo_por_comunidades" match-name="porcentajes_rangoedad"/>
 </hibernate-reverse-engineering>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 22 ene. 2022 20:08:16 by Hibernate Tools 5.4.32.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="censo_por_comunidades" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.DatosElectorales" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="datos_electorales">
+        <id name="id" type="int">
+            <column name="ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="edad" optimistic-lock="true" type="int" unique="false">
+            <column name="EDAD" not-null="true">
+                <comment>Edad del ciudadano</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="votoPartido" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="VOTO_PARTIDO" not-null="true">
+                <comment>Voto del ciudadano</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="comunidad" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="COMUNIDAD" not-null="true">
+                <comment>Comunidad a la que pertenece el ciudadano</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

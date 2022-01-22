@@ -57,6 +57,14 @@ public class Modelo {
         }
     }
     
+    /**
+     * Metodo que ejecuta la sentencia SQL, obtiene los datos de la tabla y hace la llamada a lo hilos
+     * @param ciudad
+     * @param sessionFactory
+     * @return
+     * @throws InterruptedException
+     */
+    
     public static ArrayList<DatosCiudad> listar(String ciudad, SessionFactory sessionFactory) throws InterruptedException {
         
     	//Consulta
