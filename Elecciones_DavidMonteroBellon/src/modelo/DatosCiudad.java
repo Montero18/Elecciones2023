@@ -55,8 +55,8 @@ public class DatosCiudad {
 
     @Override
     public String toString() {
-        return "Datos [Nombre = " + nombre + " --> rango1825=" + rango1825 + ", rango2640=" + rango2640 + ", rango4165="
-                + rango4165 + ", rango66=" + rango66 + "]";
+        return "Datos [Nombre = " + nombre + " --> rango1825 = " + rango1825 + ", rango2640 = " + rango2640 + ", rango4165 = "
+                + rango4165 + ", rango66 = " + rango66 + "]";
     }
 	
 }
