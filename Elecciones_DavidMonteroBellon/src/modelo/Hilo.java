@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class Hilo extends Thread{
@@ -26,50 +28,57 @@ public class Hilo extends Thread{
 	@SuppressWarnings("static-access")
     @Override
     public void run() {
+		Session session = null;
         try {
-            recurso=recurso.getInstancia();
+        	
+        	session = sessionFactory.getCurrentSession();
+        	session.beginTransaction();
+
+            recurso = recurso.getInstancia();
+            
             boolean comprobar=recurso.calcularVoto(voto, edad);
+            
             if(comprobar==true) {
                     if(edad>=18 && edad<=25) { 
-                    	sessionFactory.getCurrentSession().beginTransaction();
-                        if(voto>=0 && voto<=30) { System.out.println(comunidad+"("+edad+" Años)--"+voto+"---PP");
+                    	
+                        if(voto>=0 && voto<=30) { System.out.println(comunidad+"(" + edad + " Años)--" + voto + "---PP");
                         	DatosElectorales datosElectorales = new DatosElectorales();
                         	datosElectorales.setComunidad(comunidad);
                         	datosElectorales.setEdad(edad);
                         	datosElectorales.setVotoPartido("PP");
                         	
-                        	sessionFactory.getCurrentSession().saveOrUpdate(datosElectorales);
-                        	sessionFactory.getCurrentSession().getTransaction().commit();
+                        	session.saveOrUpdate(datosElectorales);
+                        	session.getTransaction().commit();
                        
                         }
                         if(voto>=31 && voto<=50) { System.out.println(comunidad+"("+edad+" Años)--"+voto+"---PSOE");
-	                        DatosElectorales datosElectorales = new DatosElectorales();
-	                    	datosElectorales.setComunidad(comunidad);
-	                    	datosElectorales.setEdad(edad);
-	                    	datosElectorales.setVotoPartido("PSOE");
+	                        DatosElectorales datosElectorales2 = new DatosElectorales();
+	                    	datosElectorales2.setComunidad(comunidad);
+	                    	datosElectorales2.setEdad(edad);
+	                    	datosElectorales2.setVotoPartido("PSOE");
 	                    	
-	                    	sessionFactory.getCurrentSession().saveOrUpdate(datosElectorales);
-	                    	sessionFactory.getCurrentSession().getTransaction().commit();
+	                    	session.saveOrUpdate(datosElectorales2);
+                        	session.getTransaction().commit();
 	                   
                         }
                         if(voto>=51 && voto<=70) { System.out.println(comunidad+"("+edad+" Años)--"+voto+"---VOX"); 
-	                        DatosElectorales datosElectorales = new DatosElectorales();
-	                    	datosElectorales.setComunidad(comunidad);
-	                    	datosElectorales.setEdad(edad);
-	                    	datosElectorales.setVotoPartido("VOX");
+	                        DatosElectorales datosElectorales3 = new DatosElectorales();
+	                    	datosElectorales3.setComunidad(comunidad);
+	                    	datosElectorales3.setEdad(edad);
+	                    	datosElectorales3.setVotoPartido("VOX");
 	                    	
-	                    	sessionFactory.getCurrentSession().saveOrUpdate(datosElectorales);
-	                    	sessionFactory.getCurrentSession().getTransaction().commit();
+	                    	session.saveOrUpdate(datosElectorales3);
+                        	session.getTransaction().commit();
 	                   
                         }
                         if(voto>=71 && voto<=100) { System.out.println(comunidad+"("+edad+" Años)--"+voto+"---CIUDADANOS");
-	                        DatosElectorales datosElectorales = new DatosElectorales();
-	                    	datosElectorales.setComunidad(comunidad);
-	                    	datosElectorales.setEdad(edad);
-	                    	datosElectorales.setVotoPartido("CIUDADANOS");
+	                        DatosElectorales datosElectorales4 = new DatosElectorales();
+	                    	datosElectorales4.setComunidad(comunidad);
+	                    	datosElectorales4.setEdad(edad);
+	                    	datosElectorales4.setVotoPartido("CIUDADANOS");
 	                    	
-	                    	sessionFactory.getCurrentSession().saveOrUpdate(datosElectorales);
-	                    	sessionFactory.getCurrentSession().getTransaction().commit();
+	                    	session.saveOrUpdate(datosElectorales4);
+                        	session.getTransaction().commit();
 	                   
                         }
                     }
@@ -92,6 +101,17 @@ public class Hilo extends Thread{
                         if(voto>=96 && voto<=100) { System.out.println(comunidad+"("+edad+" Años)--"+voto+"---CIUDADANOS");}
                     }
                 }            
-        }catch(Exception e) { e.printStackTrace(); }
+        }catch(HibernateException e) { 
+        	e.printStackTrace(); 
+        	if(null != session) {
+        		session.getTransaction().rollback();
+        	}
+        	
+        }
+        finally {
+    		if(null != session) {
+    			session.close();
+    		}
+    	}
     }
 }
