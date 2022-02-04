@@ -29,6 +29,7 @@ public class Modelo {
             listar("Baleares", sessionFactory);
             listar("Canarias", sessionFactory);
             listar("Cantabria", sessionFactory);
+            
             listar("Castilla La Mancha", sessionFactory);
             listar("Castilla y Leon", sessionFactory);
             listar("Catalunia", sessionFactory);
