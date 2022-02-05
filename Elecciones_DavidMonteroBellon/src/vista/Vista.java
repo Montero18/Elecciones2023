@@ -19,6 +19,16 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.data.general.DefaultPieDataset;
+
 import Controlador.Controlador;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -47,9 +57,25 @@ public class Vista extends JFrame {
 	public JButton botonRango;
 	
 	
+	public JLabel labelGalicia;
+	public JLabel labelAsturias;
+	public JLabel labelCantabria;
+	public JLabel labelPaisVasco;
+	public JLabel labelNavarra;
+	public JLabel labelLaRioja;
+	public JLabel labelAragon;
+	public JLabel labelCatalunia;
+	public JLabel labelValenciana;
+	public JLabel labelMurcia;
+	public JLabel labelBaleares;
+	public JLabel labelAndalucia;
+	public JLabel labelExtremadura;
+	public JLabel labelCastillaLeon;
+	public JLabel labelMadrid;
 	public JLabel labelCastillaLaMancha;
-	
-	
+	public JLabel labelCanarias;
+	public JLabel labelCeuta;
+	public JLabel labelMelilla;
 	public JLabel labelVotosPP;
 	public JLabel labelVotosPSOE;
 	public JLabel labelVotosVOX;
@@ -59,6 +85,11 @@ public class Vista extends JFrame {
 	public JLabel lblNewLabel_3;
 	public JLabel lblNewLabel_4;
 
+	
+	//Grafico
+	public DefaultPieDataset pieDataSet;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -93,14 +124,14 @@ public class Vista extends JFrame {
 		    contentPane.add(btnIniciarVotacion);
 		    
 		    btnBuscar = new JButton("Escrutinio");
-		    btnBuscar.setBounds(1118, 259, 136, 40);
+		    btnBuscar.setBounds(1059, 263, 136, 40);
 		    btnBuscar.setVisible(false);
 		    contentPane.add(btnBuscar);
 		    
 		    comboBoxComunidad = new JComboBox();
-		    comboBoxComunidad.setBounds(848, 259, 260, 40);
+		    comboBoxComunidad.setBounds(789, 263, 260, 40);
 		    comboBoxComunidad.setFont(new Font("Agency FB", Font.PLAIN, 35));
-		    comboBoxComunidad.setModel(new DefaultComboBoxModel(new String[] {"Andalucia", "Aragon", "Asturias", "Baleares", "Canarias", "Castilla La Mancha", "Castilla y Leon", "Catalunia", "Comunidad Valenciana", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "Pais Vasco", "La Rioja", "Ceuta", "Melilla"}));
+		    comboBoxComunidad.setModel(new DefaultComboBoxModel(new String[] {"Andalucia", "Aragon", "Asturias", "Baleares", "Canarias", "Cantabria", "Castilla La Mancha", "Castilla y Leon", "Catalunia", "Comunidad Valenciana", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "Pais Vasco", "La Rioja", "Ceuta", "Melilla"}));
 		    comboBoxComunidad.setVisible(false);
 		    contentPane.add(comboBoxComunidad);
 		 
@@ -125,32 +156,32 @@ public class Vista extends JFrame {
 		   
 		    
 		    labelVotosPP = new JLabel("");
-		    labelVotosPP.setBounds(1034, 354, 116, 87);
+		    labelVotosPP.setBounds(811, 403, 116, 40);
 		    labelVotosPP.setFont(new Font("Agency FB", Font.BOLD, 30));
 		    labelVotosPP.setBackground(new Color(255, 0, 0));
 		    labelVotosPP.setHorizontalAlignment(SwingConstants.CENTER);
 		    contentPane.add(labelVotosPP);
 		    
 		    labelVotosPSOE = new JLabel("");
-		    labelVotosPSOE.setBounds(1034, 451, 116, 71);
+		    labelVotosPSOE.setBounds(973, 403, 116, 40);
 		    labelVotosPSOE.setFont(new Font("Agency FB", Font.BOLD, 30));
 		    labelVotosPSOE.setHorizontalAlignment(SwingConstants.CENTER);
 		    contentPane.add(labelVotosPSOE);
 		    
 		    labelVotosVOX = new JLabel("");
-		    labelVotosVOX.setBounds(1034, 544, 116, 80);
+		    labelVotosVOX.setBounds(1136, 403, 116, 40);
 		    labelVotosVOX.setFont(new Font("Agency FB", Font.BOLD, 30));
 		    labelVotosVOX.setHorizontalAlignment(SwingConstants.CENTER);
 		    contentPane.add(labelVotosVOX);
 		    
 		    labelVotosCIUDADANOS = new JLabel("");
-		    labelVotosCIUDADANOS.setBounds(1034, 634, 116, 100);
+		    labelVotosCIUDADANOS.setBounds(1291, 403, 116, 32);
 		    labelVotosCIUDADANOS.setFont(new Font("Agency FB", Font.BOLD, 30));
 		    labelVotosCIUDADANOS.setHorizontalAlignment(SwingConstants.CENTER);
 		    contentPane.add(labelVotosCIUDADANOS);
 		    
 		    lblNewLabel_1 = new JLabel("");
-		    lblNewLabel_1.setBounds(886, 354, 149, 87);
+		    lblNewLabel_1.setBounds(789, 313, 149, 87);
 		    lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\PP.png"));
 		    lblNewLabel_1.setFont(new Font("Agency FB", Font.BOLD, 35));
 		    lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -158,7 +189,7 @@ public class Vista extends JFrame {
 		    contentPane.add(lblNewLabel_1);
 		    
 		    lblNewLabel_2 = new JLabel("");
-		    lblNewLabel_2.setBounds(886, 451, 149, 71);
+		    lblNewLabel_2.setBounds(948, 324, 149, 71);
 		    lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\PSOE.png"));
 		    lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		    lblNewLabel_2.setFont(new Font("Agency FB", Font.BOLD, 35));
@@ -166,20 +197,12 @@ public class Vista extends JFrame {
 		    contentPane.add(lblNewLabel_2);
 		    
 		    lblNewLabel_3 = new JLabel("");
-		    lblNewLabel_3.setBounds(886, 544, 149, 80);
+		    lblNewLabel_3.setBounds(1115, 324, 149, 80);
 		    lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\VOX.png"));
 		    lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		    lblNewLabel_3.setFont(new Font("Agency FB", Font.BOLD, 35));
 		    lblNewLabel_3.setVisible(false);
 		    contentPane.add(lblNewLabel_3);
-		    
-		    lblNewLabel_4 = new JLabel("");
-		    lblNewLabel_4.setBounds(886, 634, 149, 100);
-		    lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\CIUDADANOS.png"));
-		    lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		    lblNewLabel_4.setFont(new Font("Agency FB", Font.BOLD, 35));
-		    lblNewLabel_4.setVisible(false);
-		    contentPane.add(lblNewLabel_4);
 		    
 		    botonGeneral = new JButton("GENERAL");
 		    botonGeneral.setBounds(0, 147, 513, 87);
@@ -202,14 +225,143 @@ public class Vista extends JFrame {
 		    botonRango .setBorder(null);
 		    contentPane.add(botonRango);
 		    
-		    JLabel lblNewLabel_5 = new JLabel("");
-		    lblNewLabel_5.setBounds(85, 244, 691, 525);
-		    lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\fotoEspaña.png"));
-		    contentPane.add(lblNewLabel_5);
+		    JLabel labelFotoEspaña = new JLabel("");
+		    labelFotoEspaña.setBounds(88, 244, 691, 525);
+		    labelFotoEspaña.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\fotoEspaña.png"));
+		    contentPane.add(labelFotoEspaña);
 		    
-		    labelCastillaLaMancha = new JLabel("New label");
-		    labelCastillaLaMancha.setBounds(307, 509, 50, 50);
-		    contentPane.add(labelCastillaLaMancha);
+		    labelCastillaLaMancha = new JLabel("");
+		    labelCastillaLaMancha.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCastillaLaMancha.setBounds(225, 260, 128, 57);
+		    labelFotoEspaña.add(labelCastillaLaMancha);
+		    
+		    labelAsturias = new JLabel("");
+		    labelAsturias.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelAsturias.setBounds(145, 30, 50, 50);
+		    labelFotoEspaña.add(labelAsturias);
+		    
+		    labelGalicia = new JLabel("");
+		    labelGalicia.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelGalicia.setBounds(50, 60, 50, 50);
+		    labelFotoEspaña.add(labelGalicia);
+		    
+		    labelCantabria = new JLabel("");
+		    labelCantabria.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCantabria.setBounds(220, 40, 50, 50);
+		    labelFotoEspaña.add(labelCantabria);
+		    
+		    labelPaisVasco = new JLabel("");
+		    labelPaisVasco.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelPaisVasco.setBounds(280, 45, 50, 50);
+		    labelFotoEspaña.add(labelPaisVasco);
+		    
+		    labelNavarra = new JLabel("");
+		    labelNavarra.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelNavarra.setBounds(320, 65, 50, 50);
+		    labelFotoEspaña.add(labelNavarra);
+		    
+		    labelLaRioja = new JLabel("");
+		    labelLaRioja.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelLaRioja.setBounds(290, 95, 50, 50);
+		    labelFotoEspaña.add(labelLaRioja);
+		    
+		    labelAragon = new JLabel("");
+		    labelAragon.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelAragon.setBounds(370, 140, 50, 50);
+		    labelFotoEspaña.add(labelAragon);
+		    
+		    labelCatalunia = new JLabel("");
+		    labelCatalunia.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCatalunia.setBounds(460, 110, 60, 55);
+		    labelFotoEspaña.add(labelCatalunia);
+		    
+		    labelValenciana = new JLabel("");
+		    labelValenciana.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelValenciana.setBounds(390, 270, 50, 50);
+		    labelFotoEspaña.add(labelValenciana);
+		    
+		    labelBaleares = new JLabel("");
+		    labelBaleares.setBounds(540, 290, 50, 50);
+		    labelFotoEspaña.add(labelBaleares);
+		    
+		    labelMurcia = new JLabel("");
+		    labelMurcia.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelMurcia.setBounds(340, 350, 50, 50);
+		    labelFotoEspaña.add(labelMurcia);
+		    
+		    labelAndalucia = new JLabel("");
+		    labelAndalucia.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelAndalucia.setBounds(185, 360, 100, 71);
+		    labelFotoEspaña.add(labelAndalucia);
+		    
+		    labelExtremadura = new JLabel("");
+		    labelExtremadura.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelExtremadura.setBounds(110, 270, 83, 57);
+		    labelFotoEspaña.add(labelExtremadura);
+		    
+		    labelMadrid = new JLabel("");
+		    labelMadrid.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelMadrid.setBounds(230, 200, 50, 50);
+		    labelFotoEspaña.add(labelMadrid);
+		    
+		    labelCastillaLeon = new JLabel("");
+		    labelCastillaLeon.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCastillaLeon.setBounds(165, 120, 83, 62);
+		    labelFotoEspaña.add(labelCastillaLeon);
+		    
+		    labelCanarias = new JLabel("");
+		    labelCanarias.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCanarias.setBounds(510, 390, 50, 50);
+		    labelFotoEspaña.add(labelCanarias);
+		    
+		    labelCeuta = new JLabel("");
+		    labelCeuta.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelCeuta.setBounds(180, 490, 50, 50);
+		    labelFotoEspaña.add(labelCeuta);
+		    
+		    labelMelilla = new JLabel("");
+		    labelMelilla.setHorizontalAlignment(SwingConstants.CENTER);
+		    labelMelilla.setBounds(240, 500, 50, 50);
+		    labelFotoEspaña.add(labelMelilla);
+		    
+		    
+		    
+		    
+		    
+		    pieDataSet = new DefaultPieDataset();
+	        
+	        pieDataSet.setValue("PSOE", new Integer(31));
+	        pieDataSet.setValue("PP", new Integer(12));
+	        pieDataSet.setValue("VOX", new Integer(25));
+	        pieDataSet.setValue("CIUDADANOS", new Integer(8));
+	        
+	       
+	        JFreeChart chart;
+	        chart = ChartFactory.createPieChart3D("Elecciones Generales", pieDataSet, true, true, false);
+	        
+	        PiePlot plot = (PiePlot) chart.getPlot();
+	        plot.setBackgroundPaint(Color.white);
+	        plot.setOutlinePaint(null);
+	        plot.setSectionPaint("PSOE", Color.RED);
+	        plot.setSectionPaint("PP", Color.BLUE);
+	        plot.setSectionPaint("CIUDADANOS", new Color(250, 117, 0));
+	        plot.setSectionPaint("VOX", Color.GREEN);
+	        
+	        lblNewLabel_4 = new JLabel("");
+	        lblNewLabel_4.setBounds(1291, 299, 100, 101);
+	        contentPane.add(lblNewLabel_4);
+	        lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\CIUDADANOS.png"));
+	        lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+	        lblNewLabel_4.setFont(new Font("Agency FB", Font.BOLD, 35));
+	        
+	        ChartPanel prueba = new ChartPanel(chart);
+	        prueba.setBounds(838, 428, 588, 357);
+	        contentPane.add(prueba);
+	        lblNewLabel_4.setVisible(false);
+	   
+
+	        
+
 		}
 		
 		
