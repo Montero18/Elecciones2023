@@ -79,16 +79,23 @@ public class Controlador implements ActionListener{
         //Boton Iniciar Votacion
 		if(e.getSource() == frame.btnIniciarVotacion) {
 			try {
-				frame.btnIniciarVotacion.setVisible(false);
 				
-				int numeroVotos = Integer.parseInt(frame.textField.getText());
-				modelo.listarDatos(numeroVotos);
 				
-				frame.panelNumeroVotos.setVisible(false);
-				
-				frame.botonGeneral.setVisible(true);
-				frame.botonComunidad.setVisible(true);
-				frame.botonRango.setVisible(true);
+				if(frame.textField.getText().length()==0){
+				    frame.labelError.setVisible(true);
+					frame.btnIniciarVotacion.setVisible(true);
+
+				}else {
+					int numeroVotos = Integer.parseInt(frame.textField.getText());
+					modelo.listarDatos(numeroVotos);
+					
+					frame.panelNumeroVotos.setVisible(false);
+					
+					frame.btnIniciarVotacion.setVisible(false);
+					frame.botonGeneral.setVisible(true);
+					frame.botonComunidad.setVisible(true);
+					frame.botonRango.setVisible(true);
+				}
 				
 			} catch (Exception exception) {
 				// TODO: handle exception

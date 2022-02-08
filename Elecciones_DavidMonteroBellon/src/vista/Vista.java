@@ -87,6 +87,9 @@ public class Vista extends JFrame {
 	public JLabel lblNewLabel_4;
 
 	
+	//Label Error
+	public JLabel labelError;
+	
 	//Grafico
 	public DefaultPieDataset pieDataSet;
 	public JPanel panelGraficoComunidades;
@@ -178,13 +181,13 @@ public class Vista extends JFrame {
 			btnIniciarVotacion = new JButton("Iniciar Votación");
 			btnIniciarVotacion.setFont(new Font("Agency FB", Font.ITALIC, 55));
 			btnIniciarVotacion.setBackground(Color.WHITE);
-			btnIniciarVotacion.setBounds(575, 169, 390, 75);
+			btnIniciarVotacion.setBounds(577, 148, 390, 75);
 			panelNumeroVotos.add(btnIniciarVotacion);
 			
 			textField = new JTextField();
 			textField.setFont(new Font("Agency FB", Font.PLAIN, 35));
 			textField.setHorizontalAlignment(SwingConstants.CENTER);
-			textField.setBounds(575, 364, 390, 75);
+			textField.setBounds(577, 343, 390, 75);
 			panelNumeroVotos.add(textField);
 			textField.setColumns(10);
 			
@@ -192,13 +195,21 @@ public class Vista extends JFrame {
 			aux1 = new JLabel("Escriba el valor del escrutinio: ");
 			aux1.setHorizontalAlignment(SwingConstants.CENTER);
 			aux1.setFont(new Font("Agency FB", Font.BOLD, 30));
-			aux1.setBounds(575, 269, 390, 69);
+			aux1.setBounds(577, 248, 390, 69);
 			panelNumeroVotos.add(aux1);
 			
 			JLabel lblNewLabel_14 = new JLabel("");
 			lblNewLabel_14.setIcon(new ImageIcon("C:\\Users\\david\\git\\elecciones2023\\Elecciones_DavidMonteroBellon\\galeria\\sombra.JPG"));
-			lblNewLabel_14.setBounds(459, 80, 628, 471);
+			lblNewLabel_14.setBounds(461, 59, 628, 471);
 			panelNumeroVotos.add(lblNewLabel_14);
+			
+			labelError = new JLabel("DEBE INTRODUCIR ALGÚN NÚMERO!");
+			labelError.setForeground(Color.RED);
+			labelError.setFont(new Font("Agency FB", Font.BOLD, 40));
+			labelError.setHorizontalAlignment(SwingConstants.CENTER);
+			labelError.setBounds(461, 565, 628, 55);
+			labelError.setVisible(false);
+			panelNumeroVotos.add(labelError);
 		    
 		 	lblNewLabel = new JLabel("ELECCIONES GENERALES 2023");
 		    lblNewLabel.setBounds(10, 20, 1520, 90);
@@ -422,7 +433,7 @@ public class Vista extends JFrame {
 		    
 		    panelGraficoComunidades = new JPanel();
 		    panelGraficoComunidades.setBackground(Color.WHITE);
-		    panelGraficoComunidades.setBounds(934, 84, 534, 445);
+		    panelGraficoComunidades.setBounds(934, 84, 534, 430);
 		    panelComunidades.add(panelGraficoComunidades);
 		    
 		    comboBoxComunidad = new JComboBox();
@@ -432,7 +443,9 @@ public class Vista extends JFrame {
 		    comboBoxComunidad.setModel(new DefaultComboBoxModel(new String[] {"", "Andalucia", "Aragon", "Asturias", "Baleares", "Canarias", "Cantabria", "Castilla La Mancha", "Castilla y Leon", "Catalunia", "Comunidad Valenciana", "Extremadura", "Galicia", "Madrid", "Murcia", "Navarra", "Pais Vasco", "La Rioja", "Ceuta", "Melilla"}));
 		    
 		    btnBuscar = new JButton("Escrutinio");
-		    btnBuscar.setBounds(975, 34, 136, 40);
+		    btnBuscar.setBackground(Color.WHITE);
+		    btnBuscar.setFont(new Font("Agency FB", Font.BOLD, 30));
+		    btnBuscar.setBounds(975, 34, 151, 40);
 		    panelComunidades.add(btnBuscar);
 		    
 		    lblNewLabel_5 = new JLabel("New label");
@@ -648,7 +661,6 @@ public class Vista extends JFrame {
 		    lblNewLabel_12.setHorizontalAlignment(SwingConstants.CENTER);
 		    lblNewLabel_12.setBounds(802, 10, 637, 542);
 		    panelRango.add(lblNewLabel_12);
-		    
 		    
 		    
 
