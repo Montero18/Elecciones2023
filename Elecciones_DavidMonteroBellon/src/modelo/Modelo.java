@@ -13,7 +13,7 @@ import org.hibernate.query.Query;
 
 public class Modelo {
 	
-    public void listarDatos () throws Exception {
+    public void listarDatos (int numeroVotos) throws Exception {
     	SessionFactory sessionFactory = null;
 
         try {
@@ -23,26 +23,26 @@ public class Modelo {
             
             sessionFactory.getCurrentSession().beginTransaction();
             
-            listar("Andalucia", sessionFactory);
-            listar("Aragon", sessionFactory);
-            listar("Asturias", sessionFactory);
-            listar("Baleares", sessionFactory);
-            listar("Canarias", sessionFactory);
-            listar("Cantabria", sessionFactory);
+            listar("Andalucia", sessionFactory, numeroVotos);
+            listar("Aragon", sessionFactory, numeroVotos);
+            listar("Asturias", sessionFactory, numeroVotos);
+            listar("Baleares", sessionFactory, numeroVotos);
+            listar("Canarias", sessionFactory, numeroVotos);
+            listar("Cantabria", sessionFactory, numeroVotos);
             
-            listar("Castilla La Mancha", sessionFactory);
-            listar("Castilla y Leon", sessionFactory);
-            listar("Catalunia", sessionFactory);
-            listar("Comunidad Valenciana", sessionFactory);
-            listar("Extremadura", sessionFactory);
-            listar("Galicia", sessionFactory);
-            listar("Madrid", sessionFactory);
-            listar("Murcia", sessionFactory);
-            listar("Navarra", sessionFactory);
-            listar("Pais Vasco", sessionFactory);
-            listar("La Rioja", sessionFactory);
-            listar("Ceuta", sessionFactory);
-            listar("Melilla", sessionFactory);
+            listar("Castilla La Mancha", sessionFactory, numeroVotos);
+            listar("Castilla y Leon", sessionFactory, numeroVotos);
+            listar("Catalunia", sessionFactory, numeroVotos);
+            listar("Comunidad Valenciana", sessionFactory, numeroVotos);
+            listar("Extremadura", sessionFactory, numeroVotos);
+            listar("Galicia", sessionFactory, numeroVotos);
+            listar("Madrid", sessionFactory, numeroVotos);
+            listar("Murcia", sessionFactory, numeroVotos);
+            listar("Navarra", sessionFactory, numeroVotos);
+            listar("Pais Vasco", sessionFactory, numeroVotos);
+            listar("La Rioja", sessionFactory, numeroVotos);
+            listar("Ceuta", sessionFactory, numeroVotos);
+            listar("Melilla", sessionFactory, numeroVotos);
            
                       
         } catch (Exception e) {
@@ -65,7 +65,7 @@ public class Modelo {
      * @throws InterruptedException
      */
     
-    public static void listar(String ciudad, SessionFactory sessionFactory) throws InterruptedException {
+    public static void listar(String ciudad, SessionFactory sessionFactory, int numeroVotos) throws InterruptedException {
         
     	
     	//Consulta
@@ -81,10 +81,10 @@ public class Modelo {
             int rango66 = (int) array [3];
             int habitantesTotal = (int) array [4];
             
-            int habitantes1825 = ((rango1825 * habitantesTotal)/100)/100000;
-            int habitantes2640 = ((rango2640 * habitantesTotal)/100)/100000;
-            int habitantes4165 = ((rango4165 * habitantesTotal)/100)/100000;
-            int habitantes66 = ((rango66 * habitantesTotal)/100)/100000;
+            int habitantes1825 = ((rango1825 * habitantesTotal)/100)/numeroVotos;
+            int habitantes2640 = ((rango2640 * habitantesTotal)/100)/numeroVotos;
+            int habitantes4165 = ((rango4165 * habitantesTotal)/100)/numeroVotos;
+            int habitantes66 = ((rango66 * habitantesTotal)/100)/numeroVotos;
             
             if(habitantes1825 == 0) {habitantes1825 = 1;}
             if(habitantes2640 == 0) {habitantes2640 = 1;}

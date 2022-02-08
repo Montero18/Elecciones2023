@@ -28,5 +28,6 @@
 	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/2º CFGS DAM/Desarrollo de Interfaces/lib/txw2-2.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/Librerías/jcommon-1.0.17.jar"/>
 	<classpathentry kind="lib" path="C:/Users/david/OneDrive/Escritorio/Librerías/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
